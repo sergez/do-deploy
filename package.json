@@ -1,0 +1,30 @@
+{
+  "name": "do-deploy",
+  "version": "0.2.2",
+  "description": "Deploy DigitalOcean servers based on your config",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergez/do-deploy.git"
+  },
+  "keywords": [
+    "digitalocean",
+    "cloud",
+    "deploy",
+    "deployment",
+    "server"
+  ],
+  "author": "Serhii Zvinskyi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sergez/do-deploy/issues"
+  },
+  "homepage": "https://github.com/sergez/do-deploy#readme",
+  "dependencies": {
+    "do-wrapper": "^3.14.1",
+    "lodash": "^4.17.10"
+  }
+}
