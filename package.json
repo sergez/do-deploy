@@ -1,6 +1,6 @@
 {
   "name": "do-deploy",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Deploy DigitalOcean servers based on your config",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,9 @@
     "cloud",
     "deploy",
     "deployment",
-    "server"
+    "server",
+    "droplet",
+    "ansible"
   ],
   "author": "Serhii Zvinskyi",
   "license": "MIT",
