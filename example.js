@@ -10,7 +10,7 @@ const doDeploy = new DoDeploy({
 
     createDomains: true,
 
-    servers: [
+    droplets: [
         {
             name: 'ams-001.example.com',
             region: 'ams3'
