@@ -1,7 +1,8 @@
 # do-deploy
-Deploy DigitalOcean droplets easy based on your configuration.
+Use ```do-deploy``` to easily deploy and configure DigitalOcean droplets.
 
-There is the possibility to generate an ansible inventory file to use it in further droplets configuration.
+Moreover, ```do-deploy``` generates an ansible inventory file. Use this file to quickly configure further DigitalOcean droplets via ```ansible``` tool.
+
 
 ### Install
 ```sh
@@ -9,9 +10,9 @@ $ npm install do-deploy --save
 ```
 
 ### Usage
-In order to use ```do-deploy``` you have to generate an API token on the DigitalOcean website. Furthermore, you have had ssh key on your local machine.
+In order to use ```do-deploy``` you have to generate an API token on the DigitalOcean website. In addition to that you must have SSH public key on your local machine. It is used to deploy SSH keys to DO droplet.
 
-Here you can find instruction how to generate ssh keys:
+See how to generate SSH keys here:
 - [Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1604 "Ubuntu")
 - [Windows](https://docs.joyent.com/public-cloud/getting-started/ssh-keys/generating-an-ssh-key-manually/manually-generating-your-ssh-key-in-windows "Windows")
 
@@ -38,24 +39,24 @@ const doDeploy = new DoDeploy({
 
 doDeploy.deploy();
 ```
-*Note: replace <YOUR_DO_API_TOKEN> with your API token.
+*Note: Replace <YOUR_DO_API_TOKEN> with your API token.
 
 ### Options
-|  Option | Type  | Default   | Description  |
+|  Option | Type  | Default value  | Description  |
 | ------------ | ------------ | ------------ | ------------ |
 |  doApiToken | *string*  |    |  DigitalOcean API token |
-| doSshKeyName  | *string*  |  default  | The name of SSH key that will be created on DO and added to each of your droplets |
-| localSshKeyFilepath  | *string*  |  <USER_HOME_DIR>/.ssh/id_rsa.pub | File path to your local public SSH key. Used to deploy SSH keys to DO.  |
-| dropletTimeout  | *integer*  |  10 000 ms | Waiting time when the server is active  |
+| doSshKeyName  | *string*  |  default  | The name of SSH key that will be created on DO and added to each of your droplet |
+| localSshKeyFilepath  | *string*  |  <USER_HOME_DIR>/.ssh/id_rsa.pub | File path to your local SSH public key. Used to deploy SSH keys to DO  |
+| dropletTimeout  | *integer*  |  10 000 ms | Timeout to check whether the server is active and IP-address is assigned  |
 | dropletGetipAttempts  | *integer*  |  6  | The number of attempts  |
-| createDomains  | *boolean*  |  false | Indicates that create DNS records on DO or not. The name of the server will be used as the name for DNS record  |
-| ansible.createInventoryFile  | *boolean*  |  false | Creates ansible inventory file  |
-| ansible.inventoryFilename  | *string*  |  ./hosts | The file path of ansible inventory file  |
-| ansible.pythonInterpreter  | *string*  |  /usr/bin/python | The value of ```python_interpriter``` property in the inventory file |
-| serverDefaults.size  | *string*  |  s-1vcpu-1gb | Default droplet size  |
-| serverDefaults.image  | *string*  |  ubuntu-16-04-x64 | Default droplet image  |
-| servers[].name  | *string*  |   | Droplet name  |
-| servers[].region  | *string*  |   | Droplet region  |
+| createDomains  | *boolean*  |  false | If true, creates domain on DO. *servers[].name* is used as hostname for DO domain  |
+| ansible.createInventoryFile  | *boolean*  |  false | If true, creates ansible inventory file  |
+| ansible.inventoryFilename  | *string*  |  ./hosts | The path to ansible inventory file  |
+| ansible.pythonInterpreter  | *string*  |  /usr/bin/python | The value of ```python_interpriter``` property in the ansible inventory file |
+| dropletDefaults.size  | *string*  |  s-1vcpu-1gb | Default droplet size  |
+| dropletDefaults.image  | *string*  |  ubuntu-16-04-x64 | Default droplet image  |
+| droplets[].name  | *string*  |   | Droplet name  |
+| droplets[].region  | *string*  |   | Droplet region  |
 
 ### Issues
 Please submit an issue on GitHub with repro steps.

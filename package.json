@@ -1,7 +1,7 @@
 {
   "name": "do-deploy",
-  "version": "0.2.3",
-  "description": "Deploy DigitalOcean servers based on your config",
+  "version": "0.2.4",
+  "description": "Deploy DigitalOcean droplets easy based on your configuration",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

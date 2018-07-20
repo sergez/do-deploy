@@ -6,7 +6,7 @@ const _ = require('lodash'),
       DigitalOcean = require('do-wrapper').default;
 
 class DoDeploy {
-
+	
     constructor(options) {
 
         this.options = _.defaultsDeep(options, {
@@ -26,12 +26,12 @@ class DoDeploy {
                 pythonInterpreter: '/usr/bin/python'
             },
 
-            serverDefaults: {
+            dropletDefaults: {
                 size: 's-1vcpu-1gb',
                 image: 'ubuntu-16-04-x64'
             },
 
-            servers: []
+            droplets: []
         });
         
         this.api = new DigitalOcean(this.options.doApiToken);
@@ -138,14 +138,14 @@ class DoDeploy {
             return Promise.reject('It\'s not possible to deploy droplet without ssh key. Please check if ssh key is deployed correctly');
         }
 
-        _.forEach(this.options.servers, server => {
+        _.forEach(this.options.droplets, server => {
             promises.push(
                 this.api
                     .dropletsCreate({
                         name: server.name,
                         region: server.region,
-                        size: _.get(server, 'size', this.options.serverDefaults.size),
-                        image: _.get(server, 'image', this.options.serverDefaults.image),
+                        size: _.get(server, 'size', this.options.dropletDefaults.size),
+                        image: _.get(server, 'image', this.options.dropletDefaults.image),
                         ssh_keys: [sshKeyId],
                         tags: ['vpnserver']
                     })
