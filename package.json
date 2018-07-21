@@ -1,6 +1,6 @@
 {
   "name": "do-deploy",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Deploy DigitalOcean droplets easy based on your configuration",
   "main": "./src/do-deploy.js",
   "scripts": {
